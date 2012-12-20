@@ -1,0 +1,5 @@
+name = Archimedes
+description = Twitter boostrap theme for archimedes
+core = 7.x
+base theme = twitter_bootstrap
+stylesheets[all][] = css/archimedes.css
