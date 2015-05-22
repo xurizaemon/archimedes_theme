@@ -98,17 +98,17 @@ function archimedes_theme_preprocess_page(&$variables) {
   // Our custom search because its cool :)
   $variables['search'] = FALSE;
   if(theme_get_setting('toggle_search') && module_exists('search'))
-    $variables['search'] = drupal_get_form('_twitter_bootstrap_search_form');
+    $variables['search'] = drupal_get_form('_bootstrap_search_form');
 
   // Primary nav
   $variables['primary_nav'] = FALSE;
   if($variables['main_menu']) {
     // Build links
     $tree = menu_tree_page_data(variable_get('menu_main_links_source', 'main-menu'));
-    $variables['main_menu'] = twitter_bootstrap_menu_navigation_links($tree);
+    $variables['main_menu'] = bootstrap_menu_navigation_links($tree);
     
     // Build list
-    $variables['primary_nav'] = theme('twitter_bootstrap_links', array(
+    $variables['primary_nav'] = theme('bootstrap_links', array(
       'links' => $variables['main_menu'],
       'attributes' => array(
         'id' => 'main-menu',
@@ -129,10 +129,10 @@ function archimedes_theme_preprocess_page(&$variables) {
     
     // Build links
     $tree = menu_tree_page_data($secondary_menu['menu_name']);
-    $variables['secondary_menu'] = twitter_bootstrap_menu_navigation_links($tree);
+    $variables['secondary_menu'] = bootstrap_menu_navigation_links($tree);
     
     // Build list
-    $variables['secondary_nav'] = theme('twitter_bootstrap_btn_dropdown', array(
+    $variables['secondary_nav'] = theme('bootstrap_btn_dropdown', array(
       'links' => $variables['secondary_menu'],
       'label' => $secondary_menu['title'],
       'type' => 'success',
@@ -148,8 +148,8 @@ function archimedes_theme_preprocess_page(&$variables) {
     ));
   }
   
-  // Replace tabs with dropw down version
-  $variables['tabs']['#primary'] = _twitter_bootstrap_local_tasks($variables['tabs']['#primary']);
+  // Replace tabs with dropdown version.
+  $variables['tabs']['#primary'] = bootstrap_menu_local_tasks($variables['tabs']['#primary']);
 }
 
 
