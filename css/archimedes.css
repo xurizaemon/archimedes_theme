@@ -27,3 +27,11 @@
   font-size:90%;
   color: #999;
 }
+
+body.admin-menu .navbar-fixed-top {
+  top: 32px;
+}
+#admin-menu {
+  z-index: 1032;
+}
+
